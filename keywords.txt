@@ -1,0 +1,76 @@
+#######################################
+# Syntax Coloring Map For DFRobot_WiFi_IoT_Module
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+DFRobot_MaqueenPlus	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+PIDSwitch	KEYWORD2
+motorControl	KEYWORD2
+getSpeed	KEYWORD2
+getDirection	KEYWORD2
+getDistance	KEYWORD2
+clearDistance	KEYWORD2
+getPatrol	KEYWORD2
+getGrayscale	KEYWORD2
+setRGB	KEYWORD2
+servoControl	KEYWORD2
+getVersion	KEYWORD2
+getIR	KEYWORD2
+getVersion	KEYWORD2
+
+
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+OFF	KEYWORD2
+ON	KEYWORD2
+LEFT	KEYWORD2
+RIGHT	KEYWORD2
+ALL	KEYWORD2
+CW	KEYWORD2
+CCW	KEYWORD2
+L1	KEYWORD2
+L2	KEYWORD2
+L3	KEYWORD2
+R1	KEYWORD2
+R2	KEYWORD2
+R3	KEYWORD2
+S1	KEYWORD2
+S2	KEYWORD2
+S3	KEYWORD2
+P0	KEYWORD2
+P1	KEYWORD2
+P2	KEYWORD2
+P8	KEYWORD2
+P12	KEYWORD2
+P13	KEYWORD2
+P14	KEYWORD2
+P15	KEYWORD2
+RED	KEYWORD2
+GREEN	KEYWORD2
+BLUE	KEYWORD2
+YELLOW	KEYWORD2
+PINK	KEYWORD2
+CYAN	KEYWORD2
+WHITH	KEYWORD2
+PUT	KEYWORD2
+
+
+
+
+
+
