@@ -17,32 +17,30 @@
 DFRobot_MaqueenPlus  MaqueenPlus;
 
 void setup() { 
-  //初始化串口打印 Initialize serial printing
+  //Initi serial print
   Serial.begin(9600);
   //Init I2C until success
   while(MaqueenPlus.begin() != 0){
     Serial.println("I2C initialization failed");
   }
   Serial.println("I2C initialization success");
-  
-  
 }
 
 void loop() {
- MaqueenPlus.setRGB(MaqueenPlus.ALL, MaqueenPlus.RED);
- delay(100);
- MaqueenPlus.setRGB(MaqueenPlus.ALL, MaqueenPlus.GREEN);
- delay(100);
- MaqueenPlus.setRGB(MaqueenPlus.ALL, MaqueenPlus.BLUE);
- delay(100);
- MaqueenPlus.setRGB(MaqueenPlus.ALL, MaqueenPlus.YELLOW);
- delay(100);
- MaqueenPlus.setRGB(MaqueenPlus.ALL, MaqueenPlus.PINK);
- delay(100);
- MaqueenPlus.setRGB(MaqueenPlus.ALL, MaqueenPlus.CYAN);
- delay(100);
- MaqueenPlus.setRGB(MaqueenPlus.ALL, MaqueenPlus.WHITH);
- delay(100);
- MaqueenPlus.setRGB(MaqueenPlus.ALL, MaqueenPlus.PUT);
- delay(100);
+  MaqueenPlus.setRGB(MaqueenPlus.ALL, MaqueenPlus.RED);
+  delay(100);
+  MaqueenPlus.setRGB(MaqueenPlus.ALL, MaqueenPlus.GREEN);
+  delay(100);
+  MaqueenPlus.setRGB(MaqueenPlus.ALL, MaqueenPlus.BLUE);
+  delay(100);
+  MaqueenPlus.setRGB(MaqueenPlus.ALL, MaqueenPlus.YELLOW);
+  delay(100);
+  MaqueenPlus.setRGB(MaqueenPlus.ALL, MaqueenPlus.PINK);
+  delay(100);
+  MaqueenPlus.setRGB(MaqueenPlus.ALL, MaqueenPlus.CYAN);
+  delay(100);
+  MaqueenPlus.setRGB(MaqueenPlus.ALL, MaqueenPlus.WHITH);
+  delay(100);
+  MaqueenPlus.setRGB(MaqueenPlus.ALL, MaqueenPlus.PUT);
+  delay(100);
 }

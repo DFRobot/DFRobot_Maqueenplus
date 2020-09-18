@@ -19,7 +19,7 @@ void DFRobot_MaqueenPlus::PIDSwitch(PID state)
   buf[0] = state;
   writeReg(0X0A,buf,1);
 }
-void DFRobot_MaqueenPlus::motorControl(POS motor, Dir direction, uint8_t speed)
+void DFRobot_MaqueenPlus::motorControl(Position motor, Dir direction, uint8_t speed)
 {
   uint8_t buf[4];
   if(speed >= 240){
@@ -44,7 +44,7 @@ void DFRobot_MaqueenPlus::motorControl(POS motor, Dir direction, uint8_t speed)
       writeReg(0x00, buf, 4);
   }
 }
-uint8_t DFRobot_MaqueenPlus::getSpeed(POS motor)
+uint8_t DFRobot_MaqueenPlus::getSpeed(Position motor)
 {
   uint8_t buf[4],speed;
   readReg(0, buf, 4);
@@ -65,7 +65,7 @@ uint8_t DFRobot_MaqueenPlus::getSpeed(POS motor)
   }
   return speed;
 }
-uint8_t DFRobot_MaqueenPlus::getDirection(POS motor)
+uint8_t DFRobot_MaqueenPlus::getDirection(Position motor)
 {
   uint8_t buf[4],dir;
   readReg(0, buf, 4);
@@ -78,7 +78,7 @@ uint8_t DFRobot_MaqueenPlus::getDirection(POS motor)
   }
   return dir;
 }
-float DFRobot_MaqueenPlus::getDistance(POS motor)
+float DFRobot_MaqueenPlus::getDistance(Position motor)
 {
   uint8_t buf[4];
   float dis;
@@ -93,7 +93,7 @@ float DFRobot_MaqueenPlus::getDistance(POS motor)
   DBG(dis);
   return dis;
 }
-void DFRobot_MaqueenPlus::clearDistance(POS motor)
+void DFRobot_MaqueenPlus::clearDistance(Position motor)
 {
   
   switch(motor){
@@ -173,21 +173,21 @@ uint16_t DFRobot_MaqueenPlus::getGrayscale(Patrol senser)
   }
   return patrol_AD;
 } 
-void DFRobot_MaqueenPlus::setRGB(POS light, Colour colour)
+void DFRobot_MaqueenPlus::setRGB(Position light, Color color)
 {
   uint8_t buf[2];
   switch(light){
     case DFROBOT_MAQUEEMPLUS_LEFT:
-      buf[0] = colour;
+      buf[0] = color;
       writeReg(0x0B, buf, 1);
       break;
     case DFROBOT_MAQUEEMPLUS_RIGHT:
-      buf[0] = colour;
+      buf[0] = color;
       writeReg(0x0C, buf, 1);
       break;
     default:
-      buf[0] = colour;
-      buf[1] = colour;
+      buf[0] = color;
+      buf[1] = color;
       writeReg(0x0B, buf, 2);
   }
 }
@@ -272,36 +272,11 @@ void IR_INT()
     _counter = 0;
   }
 }
-uint8_t DFRobot_MaqueenPlus::getIR(void)
+uint32_t DFRobot_MaqueenPlus::getIR(void)
 {
   pinMode(DFROBOT_MAQUEEMPLUS_IRPIN,INPUT);
   attachInterrupt(DFROBOT_MAQUEEMPLUS_IRPIN,IR_INT,RISING);
-	switch(_data)
-	{
-		case 0xFD00FF: return 0; break;
-		case 0xFD807F: return 1; break;
-		case 0xFD40BF: return 2; break;
-		case 0xFD20DF: return 4; break;
-		case 0xFDA05F: return 5; break;
-		case 0xFD609F: return 6; break;
-		case 0xFD10EF: return 8; break;
-		case 0xFD906F: return 9; break;
-		case 0xfD50AF: return 10; break;
-		case 0xFD30CF: return 12; break;
-		case 0xFDB04F: return 13; break;
-		case 0xFD708F: return 14; break;
-		case 0xFD08F7: return 20; break;
-		case 0xFD8877: return 21; break;
-		case 0xFD48B7: return 22; break;
-		case 0xFD28D7: return 24; break;
-		case 0xFDA857: return 25; break;
-		case 0xFD6897: return 26; break;
-		case 0xFD18E7: return 28; break;
-		case 0xFD9867: return 29; break;
-		case 0xFD58A7: return 30; break;
-		default:
-		return-1;	
-	}
+  return _data;
 }
 String DFRobot_MaqueenPlus::getVersion(void)
 {

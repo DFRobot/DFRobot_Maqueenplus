@@ -19,6 +19,73 @@ To use this library, first download the library file, paste it into the \Arduino
 
 ```C++
   /**
+   * @brief Enable or disable PID
+   */
+  enum PID{
+    OFF = 0,
+    ON  = 1
+  };
+  /**
+   * @brief Position selection, suitable for RGB LEDs and motor selection
+   */
+  enum Position{
+    LEFT  = 1,
+    RIGHT = 2,
+    ALL   = 3
+  };
+  /**
+   * @brief Motor direction selection
+   */
+  enum Dir{
+    CW  = 1,
+    CCW = 2
+  };
+  /**
+   * @brief line-tracking sensor selection
+   */
+  enum Patrol{
+    L1 = 1,
+    L2 = 2,
+    L3 = 5,
+    R1 = 3,
+    R2 = 4,
+    R3 = 6
+  };
+  /**
+   * @brief RGB LEDs color selection
+   */
+  enum Color{
+    RED    = 1,
+    GREEN  = 2,
+    BLUE   = 4,
+    YELLOW = 3,
+    PINK   = 5,
+    CYAN   = 6,
+    WHITH  = 7,
+    PUT    = 8
+  };
+  /**
+   * @brief Serve port selection
+   */
+  enum Servo{
+    S1 = 1,
+    S2 = 2,
+    S3 = 3
+  };
+  /**
+   * @brief Ultrasonic pin selection
+   */
+  enum Pin{
+    P0  = 0,
+    P1  = 1,
+    P2  = 2,
+    P8  = 8,
+    P12 = 12,
+    P13 = 13,
+    P14 = 14,
+    P15 = 15
+  };
+  /**
    * @brief Init I2C until success 
    */
   uint8_t begin(void);

@@ -17,14 +17,14 @@
 DFRobot_MaqueenPlus  MaqueenPlus;
 
 void setup() { 
-  //初始化串口打印 Initialize serial printing
+  //Initi serial print
   Serial.begin(9600);
   //Init I2C until success
   while(MaqueenPlus.begin() != 0){
     Serial.println("I2C initialization failed");
   }
   Serial.println("I2C initialization success");
-  //设置麦昆Plus的RGB灯颜色 Set the RGB light color of the MaQueen Plus
+  //Set RGB led color of MaqueenPlus 
   MaqueenPlus.setRGB(MaqueenPlus.ALL, MaqueenPlus.YELLOW);
 }
 

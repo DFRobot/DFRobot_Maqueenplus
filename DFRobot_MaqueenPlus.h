@@ -39,19 +39,31 @@
 class DFRobot_MaqueenPlus
 {
 public:
+  /**
+   * @brief Enable or disable PID
+   */
   enum PID{
     OFF = 0,
     ON  = 1
   };
-  enum POS{
+  /**
+   * @brief Positionition selection, suitable for RGB LEDs and motor selection
+   */
+  enum Position{
     LEFT  = 1,
     RIGHT = 2,
     ALL   = 3
   };
+  /**
+   * @brief Motor direction selection
+   */
   enum Dir{
     CW  = 1,
     CCW = 2
   };
+  /**
+   * @brief line-tracking sensor selection
+   */
   enum Patrol{
     L1 = 1,
     L2 = 2,
@@ -60,7 +72,10 @@ public:
     R2 = 4,
     R3 = 6
   };
-  enum Colour{
+  /**
+   * @brief RGB LEDs color selection
+   */
+  enum Color{
     RED    = 1,
     GREEN  = 2,
     BLUE   = 4,
@@ -70,11 +85,17 @@ public:
     WHITH  = 7,
     PUT    = 8
   };
+  /**
+   * @brief Serve port selection
+   */
   enum Servo{
     S1 = 1,
     S2 = 2,
     S3 = 3
   };
+  /**
+   * @brief Ultrasonic pin selection
+   */
   enum Pin{
     P0  = 0,
     P1  = 1,
@@ -106,30 +127,30 @@ public:
    * @param direction Motor rotation direction 
    * @param speed Motor speed(range:0~255)
    */
-  void motorControl(POS motor, Dir direction, uint8_t speed);
+  void motorControl(Position motor, Dir direction, uint8_t speed);
   /**
    * @brief Get wheel speed
    * @param motor Select left or right motor
    * @return Return the speed of the selected motor 
    */
-  uint8_t getSpeed(POS motor);
+  uint8_t getSpeed(Position motor);
   /**
    * @brief Get rotation direction
    * @param motor Select left or right motor 
    * @return  0: stop 1: forward 2: backward
    */
-  uint8_t getDirection(POS motor);
+  uint8_t getDirection(Position motor);
   /**
    * @brief  Get the number of revolutions
    * @param motor Select left or right motor
    * @return Return the revolutions
    */
-  float getDistance(POS motor);
+  float getDistance(Position motor);
   /**
    * @brief Clear the number of revolutions
    * @param motor Select left or right motor
    */
-  void clearDistance(POS motor);
+  void clearDistance(Position motor);
   /**
    * @brief  Get line-tracking sensor status
    * @param senser Select line-tracking sensor 
@@ -146,7 +167,7 @@ public:
    * @brief Set the RGB led color
    * @param colour Select Color
    */
-  void setRGB(POS light,Colour colour);
+  void setRGB(Position light,Color color);
   /**
    * @brief Servo control
    * @param servo Select servo
@@ -164,7 +185,7 @@ public:
    * @brief Get infrared data
    * @return  Return infrared key information
    */
- uint8_t getIR(void);
+ uint32_t getIR(void);
   /**
    * @brief  Get version information
    * @return  Return version information

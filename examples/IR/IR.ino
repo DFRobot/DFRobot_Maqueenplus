@@ -13,36 +13,41 @@
  */
 
 #include <DFRobot_MaqueenPlus.h>
+#define IR_UP      127
+#define IR_DOWN    111
+#define IR_LEFT    223
+#define IR_RIGHT   159 
+#define IR_STOP    95
 
 DFRobot_MaqueenPlus  MaqueenPlus;
 
 void setup() {
-  //初始化串口打印 Initialize serial printing
+  //Init serial print
   Serial.begin(9600);
   //Init I2C until success
   while(MaqueenPlus.begin() != 0){
     Serial.println("I2C initialization failed");
   }
   Serial.println("I2C initialization success");
-  //设置麦昆Plus的RGB灯颜色 Set the RGB light color of the MaQueen Plus
+  //Set RGB light color of MaqueenPlus
   MaqueenPlus.setRGB(MaqueenPlus.ALL, MaqueenPlus.YELLOW);
 }
 
 void loop() {
-  //接收红外遥控键值 Receive infrared remote control key value
+  // Receive infrared remote controller key value
   uint8_t irData = MaqueenPlus.getIR();
-
-  if(irData == 21){//前进 Forward
+  Serial.println(irData);
+  if(irData == IR_UP){//Forward
     MaqueenPlus.motorControl(MaqueenPlus.ALL, MaqueenPlus.CW, 100);
-  }else if(irData == 29){//后退 Back
+  }else if(irData == IR_DOWN){//Backward
     MaqueenPlus.motorControl(MaqueenPlus.ALL, MaqueenPlus.CCW, 100);
-  }else if(irData == 24){//左转  Turn left
+  }else if(irData == IR_LEFT){//Turn left
     MaqueenPlus.motorControl(MaqueenPlus.LEFT, MaqueenPlus.CW, 0);
     MaqueenPlus.motorControl(MaqueenPlus.RIGHT, MaqueenPlus.CW, 200);
-  }else if(irData == 26){//右转 Ture right
+  }else if(irData == IR_RIGHT){//Ture right
     MaqueenPlus.motorControl(MaqueenPlus.LEFT, MaqueenPlus.CW, 200);
     MaqueenPlus.motorControl(MaqueenPlus.RIGHT, MaqueenPlus.CW, 0);
-  }else if(irData == 25){//停止 Stop
+  }else if(irData == IR_STOP){//Stop
     MaqueenPlus.motorControl(MaqueenPlus.ALL, MaqueenPlus.CCW, 0);
   }
 }
